@@ -1,11 +1,419 @@
-<html>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Scott's Dashboard - NetSuite Links</title>
-<link rel="stylesheet" href="main.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Spectral&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NetSuite Reports Hub</title>
+	<link rel="stylesheet" href="main.css">
 </head>
 <body>
+    <div class="container">
+        <header>
+            <h1>📊 NetSuite Reports Hub - Scott Johnson</h1>
+            <input type="text" class="search-box" id="searchBox" placeholder="Search reports...">
+            <div class="frequency-toggle">
+                <button class="toggle-btn active" data-filter="all">All Reports</button>
+                <button class="toggle-btn" data-filter="regular">Regular Use</button>
+                <button class="toggle-btn" data-filter="occasional">Occasional Use</button>
+				<button class="toggle-btn" data-filter="rare">Rare Use</button>
+            </div>
+			<p class="notes">*Please note that reports will only work if you are signed into a valid NetSuite account</p>
+        </header>
+
+        <div class="categories" id="categories">
+            <!-- Sales Reports -->
+            <div class="category" data-category="sales">
+                <div class="category-header">
+                    <span class="category-icon">💰</span>
+                    <h2 class="category-title">Sales Reports</h2>
+                </div>
+                <ul class="report-list">
+                    <li class="report-item" data-frequency="regular" data-name="sales by customer">
+                        <div class="report-header">
+                            <span class="report-title">
+                                <span class="expand-icon">▼</span>
+                                Sales by Customer
+                            </span>
+                            <span class="frequency-badge regular">Regular</span>
+                        </div>
+                        <div class="report-description">
+                            <p class="description-content">View detailed sales breakdown organized by customer, including totals and trends.</p>
+                            <a href="#" class="go-button">Go to Report →</a>
+                        </div>
+                    </li>
+                    <li class="report-item" data-frequency="regular" data-name="sales by item">
+                        <div class="report-header">
+                            <span class="report-title">
+                                <span class="expand-icon">▼</span>
+                                Sales by Item
+                            </span>
+                            <span class="frequency-badge regular">Regular</span>
+                        </div>
+                        <div class="report-description">
+                            <p class="description-content">Analyze sales performance by individual items and product categories.</p>
+                            <a href="#" class="go-button">Go to Report →</a>
+                        </div>
+                    </li>
+                    <li class="report-item" data-frequency="occasional" data-name="monthly sales summary">
+                        <div class="report-header">
+                            <span class="report-title">
+                                <span class="expand-icon">▼</span>
+                                Monthly Sales Summary
+                            </span>
+                            <span class="frequency-badge occasional">Occasional</span>
+                        </div>
+                        <div class="report-description">
+                            <p class="description-content">Comprehensive monthly overview of all sales activities and revenue.</p>
+                            <a href="#" class="go-button">Go to Report →</a>
+                        </div>
+                    </li>
+                    <li class="report-item" data-frequency="regular" data-name="sales by rep">
+                        <div class="report-header">
+                            <span class="report-title">
+                                <span class="expand-icon">▼</span>
+                                Sales by Rep
+                            </span>
+                            <span class="frequency-badge regular">Regular</span>
+                        </div>
+                        <div class="report-description">
+                            <p class="description-content">Track individual sales representative performance and commission data.</p>
+                            <a href="#" class="go-button">Go to Report →</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Customer Reports -->
+            <div class="category" data-category="customer">
+                <div class="category-header">
+                    <span class="category-icon">👥</span>
+                    <h2 class="category-title">Customer Reports</h2>
+                </div>
+                <ul class="report-list">
+                    <li class="report-item" data-frequency="regular" data-name="customer list">
+                        <div class="report-header">
+                            <span class="report-title">
+                                <span class="expand-icon">▼</span>
+                                Customer List
+                            </span>
+                            <span class="frequency-badge regular">Regular</span>
+                        </div>
+                        <div class="report-description">
+                            <p class="description-content">Complete directory of all active and inactive customers with contact details.</p>
+                            <a href="#" class="go-button">Go to Report →</a>
+                        </div>
+                    </li>
+                    <li class="report-item" data-frequency="occasional" data-name="customer aging">
+                        <div class="report-header">
+                            <span class="report-title">
+                                <span class="expand-icon">▼</span>
+                                Customer Aging
+                            </span>
+                            <span class="frequency-badge occasional">Occasional</span>
+                        </div>
+                        <div class="report-description">
+                            <p class="description-content">Track outstanding receivables and payment timelines by customer.</p>
+                            <a href="#" class="go-button">Go to Report →</a>
+                        </div>
+                    </li>
+                    <li class="report-item" data-frequency="regular" data-name="top customers">
+                        <div class="report-header">
+                            <span class="report-title">
+                                <span class="expand-icon">▼</span>
+                                Top Customers
+                            </span>
+                            <span class="frequency-badge regular">Regular</span>
+                        </div>
+                        <div class="report-description">
+                            <p class="description-content">Identify highest revenue generating customers and key accounts.</p>
+                            <a href="#" class="go-button">Go to Report →</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Financial Reports -->
+            <div class="category" data-category="financial">
+                <div class="category-header">
+                    <span class="category-icon">📈</span>
+                    <h2 class="category-title">Financial Reports</h2>
+                </div>
+                <ul class="report-list">
+                    <li class="report-item" data-frequency="regular" data-name="profit loss">
+                        <div class="report-header">
+                            <span class="report-title">
+                                <span class="expand-icon">▼</span>
+                                Profit & Loss
+                            </span>
+                            <span class="frequency-badge regular">Regular</span>
+                        </div>
+                        <div class="report-description">
+                            <p class="description-content">Review revenue, expenses, and profitability over specified periods.</p>
+                            <a href="https://bit.ly/4pSj6qT" target="_blank" class="go-button">Go to Report →</a>
+                        </div>
+                    </li>
+                    <li class="report-item" data-frequency="regular" data-name="balance sheet">
+                        <div class="report-header">
+                            <span class="report-title">
+                                <span class="expand-icon">▼</span>
+                                Balance Sheet
+                            </span>
+                            <span class="frequency-badge regular">Regular</span>
+                        </div>
+                        <div class="report-description">
+                            <p class="description-content">View company assets, liabilities, and equity at a specific point in time.</p>
+                            <a href="#" class="go-button">Go to Report →</a>
+                        </div>
+                    </li>
+                    <li class="report-item" data-frequency="occasional" data-name="cash flow statement">
+                        <div class="report-header">
+                            <span class="report-title">
+                                <span class="expand-icon">▼</span>
+                                Cash Flow Statement
+                            </span>
+                            <span class="frequency-badge occasional">Occasional</span>
+                        </div>
+                        <div class="report-description">
+                            <p class="description-content">Analyze cash inflows and outflows from operating, investing, and financing activities.</p>
+                            <a href="#" class="go-button">Go to Report →</a>
+                        </div>
+                    </li>
+                    <li class="report-item" data-frequency="regular" data-name="general ledger">
+                        <div class="report-header">
+                            <span class="report-title">
+                                <span class="expand-icon">▼</span>
+                                General Ledger
+                            </span>
+                            <span class="frequency-badge regular">Regular</span>
+                        </div>
+                        <div class="report-description">
+                            <p class="description-content">Detailed record of all financial transactions organized by account.</p>
+                            <a href="#" class="go-button">Go to Report →</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Inventory Reports -->
+            <div class="category" data-category="inventory">
+                <div class="category-header">
+                    <span class="category-icon">📦</span>
+                    <h2 class="category-title">Inventory Reports</h2>
+                </div>
+                <ul class="report-list">
+                    <li class="report-item" data-frequency="rare" data-name="inventory summary">
+                        <div class="report-header">
+                            <span class="report-title">
+                                <span class="expand-icon">▼</span>
+                                Inventory Summary
+                            </span>
+                            <span class="frequency-badge rare">Rare</span>
+                        </div>
+                        <div class="report-description">
+                            <p class="description-content">Current stock levels and inventory status across all locations.</p>
+                            <a href="#" class="go-button">Go to Report →</a>
+                        </div>
+                    </li>
+                    <li class="report-item" data-frequency="occasional" data-name="inventory valuation">
+                        <div class="report-header">
+                            <span class="report-title">
+                                <span class="expand-icon">▼</span>
+                                Inventory Valuation
+                            </span>
+                            <span class="frequency-badge occasional">Occasional</span>
+                        </div>
+                        <div class="report-description">
+                            <p class="description-content">Total value of inventory on hand using various costing methods.</p>
+                            <a href="#" class="go-button">Go to Report →</a>
+                        </div>
+                    </li>
+                    <li class="report-item" data-frequency="regular" data-name="slow-moving inventory">
+                        <div class="report-header">
+                            <span class="report-title">
+                                <span class="expand-icon">▼</span>
+                                Slow Moving Inventory
+                            </span>
+                            <span class="frequency-badge occasional">Occasional</span>
+                        </div>
+                        <div class="report-description">
+                            <p class="description-content">Saved Search showing all items and sales by Last 90 Days, Last 6 Months, 6 to 12 Months, and 12 to 18 Months. </p>
+                            <a href="https://bit.ly/49AjBiY" target="_blank" class="go-button">Go to Report →</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Operations Reports -->
+            <div class="category" data-category="operations">
+                <div class="category-header">
+                    <span class="category-icon">⚙️</span>
+                    <h2 class="category-title">Operations Reports</h2>
+                </div>
+                <ul class="report-list">
+                    <li class="report-item" data-frequency="regular" data-name="open orders">
+                        <div class="report-header">
+                            <span class="report-title">
+                                <span class="expand-icon">▼</span>
+                                Open Orders
+                            </span>
+                            <span class="frequency-badge regular">Regular</span>
+                        </div>
+                        <div class="report-description">
+                            <p class="description-content">All pending customer orders awaiting fulfillment or processing.</p>
+                            <a href="#" class="go-button">Go to Report →</a>
+                        </div>
+                    </li>
+                    <li class="report-item" data-frequency="occasional" data-name="fulfillment summary">
+                        <div class="report-header">
+                            <span class="report-title">
+                                <span class="expand-icon">▼</span>
+                                Fulfillment Summary
+                            </span>
+                            <span class="frequency-badge occasional">Occasional</span>
+                        </div>
+                        <div class="report-description">
+                            <p class="description-content">Overview of shipping and fulfillment metrics and performance.</p>
+                            <a href="#" class="go-button">Go to Report →</a>
+                        </div>
+                    </li>
+                    <li class="report-item" data-frequency="regular" data-name="pending approvals">
+                        <div class="report-header">
+                            <span class="report-title">
+                                <span class="expand-icon">▼</span>
+                                Pending Approvals
+                            </span>
+                            <span class="frequency-badge regular">Regular</span>
+                        </div>
+                        <div class="report-description">
+                            <p class="description-content">Documents and transactions requiring managerial approval.</p>
+                            <a href="#" class="go-button">Go to Report →</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Vendor Reports -->
+            <div class="category" data-category="vendor">
+                <div class="category-header">
+                    <span class="category-icon">🏢</span>
+                    <h2 class="category-title">Vendor Reports</h2>
+                </div>
+                <ul class="report-list">
+                    <li class="report-item" data-frequency="occasional" data-name="vendor list">
+                        <div class="report-header">
+                            <span class="report-title">
+                                <span class="expand-icon">▼</span>
+                                Vendor List
+                            </span>
+                            <span class="frequency-badge occasional">Occasional</span>
+                        </div>
+                        <div class="report-description">
+                            <p class="description-content">Directory of all vendors with contact information and payment terms.</p>
+                            <a href="#" class="go-button">Go to Report →</a>
+                        </div>
+                    </li>
+                    <li class="report-item" data-frequency="regular" data-name="vendor bills">
+                        <div class="report-header">
+                            <span class="report-title">
+                                <span class="expand-icon">▼</span>
+                                Vendor Bills
+                            </span>
+                            <span class="frequency-badge regular">Regular</span>
+                        </div>
+                        <div class="report-description">
+                            <p class="description-content">Outstanding and paid vendor invoices with payment status.</p>
+                            <a href="#" class="go-button">Go to Report →</a>
+                        </div>
+                    </li>
+                    <li class="report-item" data-frequency="occasional" data-name="purchase orders">
+                        <div class="report-header">
+                            <span class="report-title">
+                                <span class="expand-icon">▼</span>
+                                Purchase Orders
+                            </span>
+                            <span class="frequency-badge occasional">Occasional</span>
+                        </div>
+                        <div class="report-description">
+                            <p class="description-content">Active and historical purchase orders by vendor and item.</p>
+                            <a href="#" class="go-button">Go to Report →</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="no-results" id="noResults">
+            <h2>No reports found</h2>
+            <p>Try adjusting your search or filter</p>
+        </div>
+    </div>
+
+    <script>
+        const searchBox = document.getElementById('searchBox');
+        const categories = document.getElementById('categories');
+        const noResults = document.getElementById('noResults');
+        const toggleButtons = document.querySelectorAll('.toggle-btn');
+        let currentFilter = 'all';
+
+        // Search functionality
+        searchBox.addEventListener('input', (e) => {
+            filterReports();
+        });
+
+        // Frequency filter
+        toggleButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                toggleButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentFilter = btn.dataset.filter;
+                filterReports();
+            });
+        });
+
+        // Toggle report description
+        document.querySelectorAll('.report-header').forEach(header => {
+            header.addEventListener('click', (e) => {
+                const reportItem = header.closest('.report-item');
+                reportItem.classList.toggle('expanded');
+            });
+        });
+
+        function filterReports() {
+            const searchTerm = searchBox.value.toLowerCase();
+            let visibleCount = 0;
+
+            document.querySelectorAll('.category').forEach(category => {
+                let categoryHasVisible = false;
+
+                category.querySelectorAll('.report-item').forEach(item => {
+                    const name = item.dataset.name;
+                    const frequency = item.dataset.frequency;
+                    const matchesSearch = name.includes(searchTerm);
+                    const matchesFilter = currentFilter === 'all' || frequency === currentFilter;
+
+                    if (matchesSearch && matchesFilter) {
+                        item.classList.remove('hidden');
+                        categoryHasVisible = true;
+                        visibleCount++;
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+
+                if (categoryHasVisible) {
+                    category.classList.remove('hidden');
+                } else {
+                    category.classList.add('hidden');
+                }
+            });
+
+            if (visibleCount === 0) {
+                noResults.classList.add('show');
+            } else {
+                noResults.classList.remove('show');
+            }
+        }
+    </script>
 </body>
-</html>
+</html
